@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMVJPR7BHT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QMVJPR7BHT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Dead Redemption 2 - Mobile Visuals | GameHorizon</title>
+    <meta name="description"
+        content="Fan-made showcase of Red Dead Redemption 2 gaming mechanics on mobile devices. Explore the concept art and visual demonstrations.">
+    <meta name="keywords"
+        content="rdr2 concept, red dead redemption 2 mobile showcase, fan project, open world visualizer">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="RDR2 Mobile Concept Showcase">
+    <meta property="og:description" content="Explore the fan-made concept of Red Dead Redemption 2 for mobile devices.">
+    <meta property="og:image" content="https://gamehorizon2.netlify.app/assets/rdr2.png">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://gamehorizon2.netlify.app/rdr2.html">
+</head>
+
+<body>
+    <div class="container">
+        <header><a href="index.html" class="logo">Game<span>Horizon</span></a></header>
+
+        <div class="download-box">
+            <img src="./assets/rdr2.png" class="app-icon" alt="RDR2 Icon">
+
+            <h1 style="margin-bottom: 10px;">Red Dead Redemption 2</h1>
+            <p style="color: #aaa;">Rockstar Games • Open World • 6.8GB</p>
+
+            <div class="download-meta">
+                <span>⭐⭐⭐⭐⭐ 5.0/5</span>
+                <span>📥 2M+ Downloads</span>
+            </div>
+            <br>
+            <button class="btn-download" style="background: linear-gradient(45deg, #d32f2f, #8e0000); color: white;"
+                onclick="startDownloadProcess('RDR2 Mobile')">
+                INSTALL FOR ANDROID/iOS
+            </button>
+
+            <div class="terminal-window" id="terminal"></div>
+        </div>
+    </div>
+
+    <div class="locker-overlay" id="locker">
+        <div class="locker-box">
+            <h2 style="color: #d32f2f; margin-bottom: 15px;">⚠️ Server Verification</h2>
+            <p>High traffic detected. Please verify you are human to start the <strong>RDR2</strong> download.</p>
+            <br>
+            <button class="btn-download" style="font-size: 1rem; padding: 12px; background: #d32f2f; color: white;"
+                onclick="callCpaOffer()">VERIFY NOW</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

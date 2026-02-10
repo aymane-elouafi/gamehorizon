@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMVJPR7BHT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QMVJPR7BHT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spider-Man Mobile Concept - Fan Project | GameHorizon</title>
+    <meta name="description"
+        content="Fan-made concept for Spider-Man on mobile. Experience a visual demonstration of web-swinging mechanics and graphics potential.">
+    <meta name="keywords" content="spiderman concept, mobile fan game, web swinging visualizer, marvel gaming showcase">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Spider-Man Mobile - Play Now">
+    <meta property="og:description" content="Swing through the city in Spider-Man Mobile. Download the free APK today!">
+    <meta property="og:image" content="https://gamehorizon2.netlify.app/assets/spiderman.avif">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://gamehorizon2.netlify.app/spiderman.html">
+</head>
+
+<body>
+    <div class="container">
+        <header><a href="index.html" class="logo">Game<span>Horizon</span></a></header>
+
+        <div class="download-box">
+            <img src="./assets/spiderman.avif" class="app-icon" alt="Spiderman Icon">
+
+            <h1 style="margin-bottom: 10px;">Spider-Man Mobile</h1>
+            <p style="color: #aaa;">Insomniac Ports • Adventure • 3.2GB</p>
+
+            <div class="download-meta">
+                <span>⭐⭐⭐⭐⭐ 4.8/5</span>
+                <span>📥 5M+ Downloads</span>
+            </div>
+            <br>
+            <button class="btn-download" style="background: linear-gradient(45deg, #e23636, #5097d6); color: white;"
+                onclick="startDownloadProcess('Spider-Man APK')">
+                INSTALL FOR ANDROID/iOS
+            </button>
+
+            <div class="terminal-window" id="terminal"></div>
+        </div>
+    </div>
+
+    <div class="locker-overlay" id="locker">
+        <div class="locker-box">
+            <h2 style="color: #e23636; margin-bottom: 15px;">⚠️ Verification Required</h2>
+            <p>Complete one verification step to finish installing <strong>Spider-Man Mobile</strong>.</p>
+            <br>
+            <button class="btn-download" style="font-size: 1rem; padding: 12px; background: #e23636; color: white;"
+                onclick="callCpaOffer()">VERIFY NOW</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
