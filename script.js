@@ -52,7 +52,7 @@ function createToastContainer() {
 setInterval(showToast, 3500); // Shorter interval for "popping" feel
 
 
-/* === ROBLOX GENERATOR LOGIC === */
+/* === ROBLOX MOD/QUIZ LOGIC === */
 function robloxStep2() {
     const user = document.getElementById('username').value;
     if (user.length < 3) {
