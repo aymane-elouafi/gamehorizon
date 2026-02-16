@@ -138,46 +138,23 @@ function showLocker() {
     document.getElementById('locker').style.display = 'flex';
 }
 
-/* === CPA LOCKER TRIGGER (OGAds) === */
+/* === CPA LOCKER TRIGGER (OGAds - og_load) === */
 function callCpaOffer() {
     // UI Feedback
     const btn = document.querySelector('.locker-box .btn-download');
-    if (btn) btn.innerHTML = 'Verify Now';
+    if (btn) btn.innerHTML = 'Verifying...';
 
-    // 1. Set the block variable
-    window.ogblock = true;
-
-    // 2. Remove any old script instance
-    const oldScript = document.getElementById('ogjs');
-    if (oldScript) oldScript.remove();
-
-    // 3. Create and inject the script
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.id = 'ogjs';
-    script.src = 'https://lockedapp.store/cl/js/m55o98';
-
-    // 4. AdBlock / Load Handling
-    script.onload = function () {
-        window.ogblock = false;
-        console.log("Locker script loaded.");
-    };
-
-    script.onerror = function () {
-        console.log("Locker script failed to load.");
-        window.location.href = "https://lockedapp.store/adblock";
-    };
-
-    // Append to body (standard placement)
-    document.body.appendChild(script);
-
-    // 5. Fallback Check (Delayed)
-    // We give it 2 seconds. If ogblock is still true, we assume blockage.
-    setTimeout(function () {
-        if (window.ogblock) {
-            window.location.href = "https://lockedapp.store/adblock";
-        }
-    }, 2000);
+    // Call og_load() as per standard OGAds/lockedapp integration
+    // This assumes the script in <head> has loaded.
+    if (typeof og_load === 'function') {
+        og_load();
+    } else {
+        console.error("OGAds script not loaded despite head injection.");
+        // Fallback: If adblock killed the script in head, user should have been redirected.
+        // If they weren't redirected but script is missing, maybe a network error or strict blocking without redirect.
+        alert("Verification tool is blocked. Please disable AdBlock/Tracker blockers and refresh.");
+        window.location.reload();
+    }
 }
 
 /* === DOWNLOAD PAGE LOGIC (Optimized 3 Seconds) === */
