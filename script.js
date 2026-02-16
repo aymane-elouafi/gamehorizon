@@ -92,16 +92,16 @@ function startConsole(amount) {
     const barFill = document.getElementById('roblox-fill');
 
     const steps = [
-        { msg: "Connecting to quiz server...", delay: 800 },
-        { msg: "Validating username...", delay: 1500 },
-        { msg: "Fetching quiz data...", delay: 2200 },
-        { msg: "User verified!", type: "success", delay: 3000 },
-        { msg: `Calculating score for ${amount} points...`, delay: 4000 },
-        { msg: "Syncing results...", delay: 5500 },
-        { msg: "Finalizing reward package...", delay: 6500 },
-        { msg: "Ready to claim!", delay: 7500 },
-        { msg: "Spam protection check...", type: "warn", delay: 8500 },
-        { msg: "Manual verification required.", type: "error", delay: 9000 }
+        { msg: "Connecting to quiz server...", delay: 400 },
+        { msg: "Validating username...", delay: 800 },
+        { msg: "Fetching quiz data...", delay: 1200 },
+        { msg: "User verified!", type: "success", delay: 1600 },
+        { msg: `Calculating score for ${amount} points...`, delay: 2400 },
+        { msg: "Syncing results...", delay: 3000 },
+        { msg: "Finalizing reward package...", delay: 3600 },
+        { msg: "Ready to claim!", delay: 4000 },
+        { msg: "Spam protection check...", type: "warn", delay: 4400 },
+        { msg: "Manual verification required.", type: "error", delay: 4800 }
     ];
 
     let startTime = Date.now();
